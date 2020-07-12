@@ -1,0 +1,27 @@
+<label for="twitterHandle">Enter Twitter Handle</label>
+
+<input type="text" [(ngModel)]="twitterHandle"> &nbsp;
+<button type="submit" (click)="submit()">Submit</button>
+
+<br>
+<br><br>
+
+<div *ngIf="tweetData.length">
+    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" style="width: 40%; height: 400px; display: block;">
+    </highcharts-chart>
+</div>
+
+<div class="table" *ngIf="tweetData.length">
+    <table class="responsive-table highlight">
+        <thead>
+            <tr>
+                <th>Sr. no.</th>
+                <th>Tweets</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let tweet of tweetData; let i=index">
+            <td>{{i + 1}}</td>
+            <td>{{emp.tweets}}</td>
+        </tr>
+    </table>
+</div>
